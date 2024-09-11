@@ -71,49 +71,41 @@ The partitions (queues) are then organized as follows; note that you can get det
    :align: center
    :widths: auto
 
-  +-----------+---------+--------------+-----------------+---------------+------------+
-   | Partition | | Max   | | Max Time   | | Max Memory    | | Max Threads | | Max GPUs |
-   |           | | Nodes | | (HH:MM:SS) | | per Node (MB) | | per Node    | | per Node |
-   +===========+=========+==============+=================+===============+============+
-   | regular1  |    16   | 12:00:00     | 40000           |       40      |     \-     |
-   |           |         |              |                 |               |            |
-   |           |         |              | 160000          |               |            |
-   |           |         |              |                 |               |            |
-   |           |         |              | 320000(*)       |               |            |
-   +-----------+         |              +-----------------+---------------+            |
-   | regular2  |         |              | 63500           |       64      |            |
-   +-----------+---------+--------------+-----------------+---------------+------------+
-   | long1     |    8    | 48:00:00     | 40000           |       40      |     \-     |
-   |           |         |              |                 |               |            |
-   |           |         |              | 160000          |               |            |
-   |           |         |              |                 |               |            |
-   |           |         |              | 320000          |               |            |
-   +-----------+         |              +-----------------+---------------+            |
-   | long2     |         |              | 63500           |       64      |            |
-   +-----------+---------+--------------+-----------------+---------------+------------+
-   | wide1     |    32   | 08:00:00     | 40000           |       40      |     \-     |
-   |           |         |              |                 |               |            |
-   |           |         |              | 160000(**)      |               |            |
-   |           |         |              |                 |               |            |
-   |           |         |              | 320000(*)       |               |            |
-   +-----------+         |              +-----------------+---------------+            |
-   | wide2     |         |              | 63500           |       64      |            |
-   +-----------+---------+--------------+-----------------+---------------+------------+
-   | gpu1      |    4    | 12:00:00     | 63500           |       40      |      2     |
-   +-----------+         |              |                 +---------------+            |
-   | gpu2      |         |              |                 |       64      |            |
-   +-----------+---------+--------------+-----------------+---------------+------------+
+  +-------------+---------+--------------+-----------------+---------------+------------+
+  | Partition   | | Max   | | Max Time   | | Max Memory    | | Max Threads | | Max GPUs |
+  |             | | Nodes | | (HH:MM:SS) | | per Node (MB) | | per Node    | | per Node |
+  +=============+=========+==============+=================+===============+============+
+  | rack1       |    11   | 30-00:00     | ???             |       ??      |     \-     |
+  |             |         |              |                 |               |            |
+  |             |         |              | ??????          |               |            |
+  |             |         |              |                 |               |            |
+  |             |         |              | ??????????      |               |            |
+  +-------------+---------+--------------+-----------------+---------------+------------+
+  | broadwellr2 |    ?    | 30-00:00     | ?????           |       40      |     \-     |
+  |             |         |              |                 |               |            |
+  |             |         |              | ??????          |               |            |
+  |             |         |              |                 |               |            |
+  |             |         |              | ??????          |               |            |
+  +-------------+---------+--------------+-----------------+---------------+------------+
+  | r2c2        |   ?     | 30-00:00     | ?               |       ?       |     \-     |
+  |             |         |              |                 |               |            |
+  +-------------+---------+--------------+-----------------+---------------+------------+
+  | knl         |   ?     | 30-00:00     | ?               |       ?       |     \-     |
+  |             |         |              |                 |               |            |
+  +-------------+---------+--------------+-----------------+---------------+------------+
+  | gpu         |    ?    | ?            | ???????         |       ??      |            |
+  +-------------+---------+--------------+-----------------+---------------+------------+
 
 
-.. note:: **Clarification on max memory:** on the the regular1, long1 and wide1 queues you can normally ask for 40000 MB max memory. However, there are also additional nodes with bigger memory. As as you can see in the :ref:`Specs Sheet<Specs Sheet>`, though, there are not enough "big memory" nodes for all the possible configurations, as there are only 24 nodes with 160000 MB max memory and only 8 nodes with 320000 MB max memory. This means you have to be careful with big memory nodes if you queue jobs in regular1 or wide1. For example, it makes little sense to queue a job requiring all the 8 nodes with 320000 MB max memory in the wide queue, which in principle is useful only for a number of nodes greater than 16. Since there are only 8 nodes with 320000 MB max memory, it would make more sense to take advantage of the increased max time in the long1 queue and queue it there.
+.. note:: **Clarification on max memory:** on the the broadwellr2, r2c2 and rack1 queues you can normally ask for ??? MB max memory. However, there are also additional nodes with bigger memory. As as you can see in the :ref:`Specs Sheet<Specs Sheet>`, though, there are not enough "big memory" nodes for all the possible configurations, as there are only ?? nodes with ?? MB max memory and only ?? nodes with ?? MB max memory. This means you have to be careful with big memory nodes if you queue jobs in ?? or ??. For example, it makes little sense to queue a job requiring all the ?? nodes with ?? MB max memory in the wide queue, which in principle is useful only for a number of nodes greater than ??. Since there are only ?? nodes with ?? MB max memory, it would make more sense to take advantage of the increased max time in the ? queue and queue it there.
 
 
 .. note:: **Clarification on threads:** since Hyper-Threading is enabled on all nodes, there are 2 threads per physical core. However, in SLURM's job script language, every thread is a CPU; this means that if you ask for "40 CPUs" in regular1 you are actually asking 40 threads, which is 20 physical cores. For a clarification on the definition on socket, core and thread take a look at the picture below.
 
 
-.. figure:: res/mc_support.png
+.. figure:: res/???.png
    :width: 67%
-   :alt: ulysses
+   :alt: ekman
    :align: center
    
    Definitions of Socket, Core, & Thread. From `SLURM's documentation <https://slurm.schedmd.com/mc_support.html>`_.
