@@ -103,10 +103,11 @@ The partitions (queues) are then organized as follows; note that you can get det
 .. note:: **Clarification on threads:** since Hyper-Threading is enabled on all nodes, there are 2 threads per physical core. However, in SLURM's job script language, every thread is a CPU; this means that if you ask for "40 CPUs" in regular1 you are actually asking 40 threads, which is 20 physical cores. For a clarification on the definition on socket, core and thread take a look at the picture below.
 
 
-.. figure:: res/???.png
-   :width: 67%
+.. figure:: images/w_ekman.jpeg
    :alt: ekman
    :align: center
+   :width: 600px
+
    
    Definitions of Socket, Core, & Thread. From `SLURM's documentation <https://slurm.schedmd.com/mc_support.html>`_.
 
