@@ -24,5 +24,18 @@ exclude_patterns = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+
+html_theme = "furo"
 html_static_path = ['_static']
+
+html_logo = "_static/lab_logo.jpg"  # логотип в шапке
+html_favicon = "_static/logotip_03-2.png"  # можно заменить
+
+html_theme_options = {
+    "light_logo": "lab_logo.jpg",
+    "dark_logo": "lab_logo.jpg",
+    "sidebar_hide_name": False,
+}
+
+
