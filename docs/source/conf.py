@@ -43,7 +43,7 @@ html_logo = '_static/lab_logo.jpg'
 
 html_sidebars = {
     '**': [
-        'navigation.html',     # глобальное оглавление (как “Contents”)
+        'sidebar/navigation.html',     # глобальное оглавление (как “Contents”)
         'relations.html',     # кнопки "next" и "previous"
         'searchbox.html',     # строка поиска
     ]
