@@ -5,17 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ekman’s Specs Sheet &#8212; Guide to Ekman 1.0 documentation</title>
+    <title>Ekman’ Specs &#8212; Ekman Cluster Documentation 1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=f6a572b4" />
     <script src="_static/documentation_options.js?v=f2a433a1"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <link rel="icon" href="_static/logotip_03-2.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to the Ekman Cluster Documentation" href="index.html" />
+    <link rel="prev" title="Cluster Basics" href="cluster-basics.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -24,21 +23,51 @@
   
 
   </head><body>
-  
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/lab_logo.jpg" alt="Logo of Ekman Cluster Documentation"/>
+            </a></p>
+<div role="navigation" aria-label="main navigation">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cluster-basics.html">Cluster Basics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ekman’ Specs</a></li>
+</ul>
 
-    <div class="document">
+</div><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="cluster-basics.html" title="previous chapter">Cluster Basics</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
           
 
           <div class="body" role="main">
             
-  <section id="ekman-s-specs-sheet">
-<span id="specs-sheet"></span><h1>Ekman’s Specs Sheet<a class="headerlink" href="#ekman-s-specs-sheet" title="Link to this heading">¶</a></h1>
-<p>Ekman was launched in exteneded new architecture in September 2024.</p>
-<p>This new infrastructure consists of additional nodes and an upgraded software stack.
-Ekman works under a job scheduler, <strong>SLURM</strong> (Simple Linux Utility for Resource Management).
-The old nodes are used in partitions <strong>???</strong>, <strong>???</strong>, while the new nodes are available as <strong>broadwellr2</strong>, <strong>r2c2</strong>, <strong>rack1</strong>, <strong>knl</strong> and <strong>gpu</strong>.</p>
+  <section id="ekman-specs">
+<h1>Ekman’ Specs<a class="headerlink" href="#ekman-specs" title="Link to this heading">¶</a></h1>
+<p>Knowing the specs of the cluster is important, as it allows you to carefully balance your computation and to choose the right partition (or “queue”) for the calculation you have to perform.</p>
+<section id="specs-sheet">
+<h2>Specs Sheet<a class="headerlink" href="#specs-sheet" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Name: <strong>ekman</strong></p></li>
 <li><p>Operating System: = 3.10.0-1160.el7.x86_64 GNU/Linux</p></li>
@@ -83,27 +112,7 @@ The old nodes are used in partitions <strong>???</strong>, <strong>???</strong>,
 </li>
 </ul>
 </li>
-<li><p>Storage:</p>
-<ul>
-<li><p>Filesystem: Lustre ???</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">/home</span></code>:</p>
-<ul>
-<li><p>Total: ?? TiB (2 x OST with ?? TiB each)</p></li>
-<li><p>User quota: <strong>?? GiB (hard limit: ?? GiB)</strong></p></li>
 </ul>
-</li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">/scratch</span></code>:</p>
-<ul>
-<li><p>Total: ?? TiB (2 x OST with ?? TiB each)</p></li>
-<li><p>User quota: <strong>?? GiB (hard limit: ?? GiB)</strong></p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<section id="partitions">
-<h2>Partitions<a class="headerlink" href="#partitions" title="Link to this heading">¶</a></h2>
-<p>The partitions (queues) are then organized as follows; note that you can get detailed information about a partition via the command <code class="code docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">show</span> <span class="pre">Partition=&lt;name&gt;</span></code>.</p>
 </section>
 </section>
 
@@ -112,60 +121,10 @@ The old nodes are used in partitions <strong>???</strong>, <strong>???</strong>,
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="Main">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/lab_logo.jpg" alt="Logo of Guide to Ekman"/>
-            </a></p>
-<h1 class="logo"><a href="index.html">Guide to Ekman</a></h1>
-
-
-
-
-
-
-
-
-
-<search id="searchbox" style="display: none" role="search">
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Ekman’s Specs Sheet</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#partitions">Partitions</a></li>
-</ul>
-</li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to the Ekman Cluster Documentation</a></li>
-  </ul></li>
-</ul>
-</div>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer">
-      &#169;2025, Natalia Tilinina and Alexander Gavrikov.
+      &#169;.
       
       |
       Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>

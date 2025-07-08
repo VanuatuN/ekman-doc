@@ -1,29 +1,26 @@
-.. image:: _static/logotip_03-2.png
-   :alt: IO RAS
-   :align: right
-   :width: 100px
+Ekman cluster documentation
+===========================
 
-.. image:: _static/lab_logo.jpg
-   :alt: SAIL Lab
-   :align: left
-   :width: 180px
+**Ekman** was launched in exteneded new architecture in September 2024.
 
-Welcome to the Ekman Cluster Documentation
-==========================================
+This new infrastructure consists of additional nodes and an upgraded software stack.
+Ekman works under a job scheduler, **SLURM** (Simple Linux Utility for Resource Management). 
 
-This documentation describes the Ekman HPC system maintained by the
-**Sea-Atmosphere Interaction Laboratory (SAIL)** and **IT Departement** of the **Shirshov Institute of Oceanology RAS**.
+Official cluster documentation: https://sail.ocean.ru/comcen/ekman_ru.html.
 
-.. image:: _static/w_ekman.jpeg
-   :alt: Vagn Walfrid Ekman
-   :width: 250px
-   :align: center
+The old nodes are used in partitions **???**, **???**, while the new nodes are available as **broadwellr2**, **r2c2**, **rack1**, **knl** and **gpu**.
 
-*“Professor Vagn W. Ekman, 1874-1954”*
+Latest update: |July 2025|.
+
+.. _computer: https://en.wikipedia.org/wiki/Computer_hardware
+.. _Bash: https://en.wikipedia.org/wiki/Bash_(Unix_shell)
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
+   cluster-basics
    specs
 
+
+*This is an evolving guide. More sections coming soon.*

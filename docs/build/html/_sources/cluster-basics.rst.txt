@@ -1,45 +1,43 @@
-Ekman' Specs
+Cluster Basics
 ===================
 
-Knowing the specs of the cluster is important, as it allows you to carefully balance your computation and to choose the right partition (or "queue") for the calculation you have to perform.
+Здесь будет короткое описание чего такое кластер вообще
 
-Specs Sheet
------------
 
-* Name: **ekman**
-* Operating System: = 3.10.0-1160.el7.x86_64 GNU/Linux 
-* Scheduler: **SLURM 19.05.3**
-* Nodes:
+.. * Name: **ekman**
+.. * Operating System: = 3.10.0-1160.el7.x86_64 GNU/Linux 
+.. * Scheduler: **SLURM 19.05.3**
+.. * Nodes:
 
-  * **1 x Login Node** (:code:`sail.msk.ru -p 2240`) configured as:
+..   * **1 x Login Node** (:code:`sail.msk.ru -p 2240`) configured as:
 
-    * Model: ???
-    * CPU: 112 x Intel(R) Xeon(R) E5-2640 @ 2.50GHz ????
+..     * Model: ???
+..     * CPU: 112 x Intel(R) Xeon(R) E5-2640 @ 2.50GHz ????
 
-      * Each of the 2 CPUs has 6C/12T, but Hyper-Threading is disabled on the login nodes; so each login node has a total of 12C/12T.
+..       * Each of the 2 CPUs has 6C/12T, but Hyper-Threading is disabled on the login nodes; so each login node has a total of 12C/12T.
 
-    * RAM: 64 GiB
-    * Disk: ???
+..     * RAM: 64 GiB
+..     * Disk: ???
 
-  * **34 x Compute Nodes** configured as:
+..   * **34 x Compute Nodes** configured as:
 
-    * Model: Intel(R) Xeon(R) ?? 
-    * CPU: **2 x** Intel(R) Xeon(R) **E5-2680 v2 @ 2.80GHz**
+..     * Model: Intel(R) Xeon(R) ?? 
+..     * CPU: **2 x** Intel(R) Xeon(R) **E5-2680 v2 @ 2.80GHz**
 
-      * Each of the 2 CPUs has 10C/20T. Hyper-Threading is *enabled*, so each node as a total of **20C/40T**.
+..       * Each of the 2 CPUs has 10C/20T. Hyper-Threading is *enabled*, so each node as a total of **20C/40T**.
 
-    * RAM:
+..     * RAM:
 
-      * **184 nodes with 40 GiB** (2 GiB / core)
-      * **24 nodes with 160 GiB** (8 GiB / core)
-      * **8 nodes with 320 GiB** (16 GiB / core)
-      * **8 nodes with 64 GiB** (3.2GiB / core, **GPU nodes only**)
+..       * **184 nodes with 40 GiB** (2 GiB / core)
+..       * **24 nodes with 160 GiB** (8 GiB / core)
+..       * **8 nodes with 320 GiB** (16 GiB / core)
+..       * **8 nodes with 64 GiB** (3.2GiB / core, **GPU nodes only**)
 
-    * GPU:
+..     * GPU:
 
-      * **1 nodes**, each with **2 sockets x 44 cores pet soket** in total **176 NVIDIA Tesla ???** (each card has ??? GB GDDR5 memory).
+..       * **1 nodes**, each with **2 sockets x 44 cores pet soket** in total **176 NVIDIA Tesla ???** (each card has ??? GB GDDR5 memory).
 
-    * Disk: ???
+..     * Disk: ???
 
  
 
