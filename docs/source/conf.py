@@ -48,26 +48,15 @@ pygments_style = None
 exclude_patterns = []
 
 
-html_logo = '_static/lab_logo.jpg'
-html_logo = '_static/lab_logo.jpg'
-
-html_sidebars = {
-    '**': [
-        #'navigation.html',     # глобальное оглавление (как “Contents”)
-        'relations.html',     # кнопки "next" и "previous"
-        'searchbox.html',     # строка поиска
-    ]
-}
-
-html_theme = 'sphinx_rtd_theme'
-
 html_context = {
     "display_github": True,
     "github_user": "VanuatuN",
     "github_repo": "ekman-doc",
     "github_version": "main",
-    "conf_py_path": "/docs/source/",
 }
+
+html_logo = '_static/institute_logo.png'
+html_favicon = '_static/favicon_ekman.ico'
 
 
 # html_theme_options = {
