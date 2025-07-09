@@ -14,6 +14,8 @@ release = u''
 extensions = []
 
 templates_path = ['_templates']
+html_static_path = ['_static']
+
 
 
 # List of patterns, relative to source directory, that match files and
