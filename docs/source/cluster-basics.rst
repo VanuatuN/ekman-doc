@@ -1,9 +1,7 @@
 Cluster Basics
-===================
+==============
 
-Здесь будет короткое описание чего такое кластер вообще
-
-
+something
 .. * Name: **ekman**
 .. * Operating System: = 3.10.0-1160.el7.x86_64 GNU/Linux 
 .. * Scheduler: **SLURM 19.05.3**

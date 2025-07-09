@@ -4,7 +4,7 @@ release = '1.0'
 
 extensions = []
 
-templates_path = ['_templates/sidebar']
+templates_path = ['_templates']
 
 
 # List of patterns, relative to source directory, that match files and
@@ -26,6 +26,7 @@ html_theme = 'sphinx_rtd_theme'    #'sphinx_rtd_theme'
 html_theme_options = {
   'collapse_navigation': False,
   'navigation_depth': 4,
+  'titles_only': False,
 }
 
 html_static_path = ['_static']
@@ -39,24 +40,36 @@ exclude_patterns = []
 
 
 html_logo = '_static/lab_logo.jpg'
+html_logo = '_static/lab_logo.jpg'
 
 html_sidebars = {
     '**': [
-        'sidebar/navigation.html',     # глобальное оглавление (как “Contents”)
+        #'navigation.html',     # глобальное оглавление (как “Contents”)
         'relations.html',     # кнопки "next" и "previous"
         'searchbox.html',     # строка поиска
     ]
 }
 
-html_theme_options = {
-    'logo': 'lab_logo.jpg',
-    'description': 'Ekman Cluster: Specs & Usage',
-    'github_user': 'VanuatuN',
-    'github_repo': 'ekman-doc',
-    'fixed_sidebar': True,
-    'sidebar_includehidden': True,
-    'extra_nav_links': {
-        'Institute of Oceanology RAS': 'https://ocean.ru',
-        'Sea-Air Interaction and Climate Laboratory': 'https://sail.ocean.ru',
-    },
+html_theme = 'sphinx_rtd_theme'
+
+html_context = {
+    "display_github": True,
+    "github_user": "VanuatuN",
+    "github_repo": "ekman-doc",
+    "github_version": "main",
+    "conf_py_path": "/docs/source/",
 }
+
+
+# html_theme_options = {
+#     'logo': 'lab_logo.jpg',
+#     'description': 'Ekman Cluster: Specs & Usage',
+#     'github_user': 'VanuatuN',
+#     'github_repo': 'ekman-doc',
+#     'fixed_sidebar': True,
+#     'sidebar_includehidden': True,
+#     'extra_nav_links': {
+#         'Institute of Oceanology RAS': 'https://ocean.ru',
+#         'Sea-Air Interaction and Climate Laboratory': 'https://sail.ocean.ru',
+#     },
+# }

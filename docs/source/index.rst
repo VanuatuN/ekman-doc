@@ -10,7 +10,9 @@ Official cluster documentation: https://sail.ocean.ru/comcen/ekman_ru.html.
 
 The old nodes are used in partitions **???**, **???**, while the new nodes are available as **broadwellr2**, **r2c2**, **rack1**, **knl** and **gpu**.
 
-Latest update: |July 2025|.
+Latest update: |release_date|.
+
+.. |release_date| replace:: July 2025
 
 .. _computer: https://en.wikipedia.org/wiki/Computer_hardware
 .. _Bash: https://en.wikipedia.org/wiki/Bash_(Unix_shell)
@@ -19,8 +21,9 @@ Latest update: |July 2025|.
    :maxdepth: 3
    :caption: Contents:
 
-   cluster-basics
+   
    specs
+   cluster-basics
 
 
 *This is an evolving guide. More sections coming soon.*
