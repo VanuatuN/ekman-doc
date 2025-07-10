@@ -76,46 +76,37 @@ Partitions
 
 The partitions (queues) are then organized as follows; note that you can get detailed information about a partition via the command :code:`scontrol show Partition=<name>`.
 
-.. table:: Max resources you can ask for each partition. (*): max ?? nodes. (**): max ?? nodes.
+.. table:: Max resources you can ask for each partition.
    :align: center
    :widths: auto
 
-  +-------------+---------+--------------+-----------------+---------------+------------+
-  | Partition   | | Max   | | Max Time   | | Max Memory    | | Max Threads | | Max GPUs |
-  |             | | Nodes | | (HH:MM:SS) | | per Node (MB) | | per Node    | | per Node |
-  +=============+=========+==============+=================+===============+============+
-  | rack1       |    11   | 30-00:00     | ???             |       ??      |     \-     |
-  |             |         |              |                 |               |            |
-  |             |         |              | ??????          |               |            |
-  |             |         |              |                 |               |            |
-  |             |         |              | ??????????      |               |            |
-  +-------------+---------+--------------+-----------------+---------------+------------+
-  | broadwellr2 |    ?    | 30-00:00     | ?????           |       40      |     \-     |
-  |             |         |              |                 |               |            |
-  |             |         |              | ??????          |               |            |
-  |             |         |              |                 |               |            |
-  |             |         |              | ??????          |               |            |
-  +-------------+---------+--------------+-----------------+---------------+------------+
-  | r2c2        |   ?     | 30-00:00     | ?               |       ?       |     \-     |
-  |             |         |              |                 |               |            |
-  +-------------+---------+--------------+-----------------+---------------+------------+
-  | knl         |   ?     | 30-00:00     | ?               |       ?       |     \-     |
-  |             |         |              |                 |               |            |
-  +-------------+---------+--------------+-----------------+---------------+------------+
-  | gpu         |         | ?            | ???????         |       ??      |      2     |
-  +-------------+---------+--------------+-----------------+---------------+------------+
+   +-------------+--------+----------------+--------------+-----------------+-------------+-------------+
+   | Partition   | Nodes  | Cores per Node | Max Time     | Max Memory (GB) | Processor   | Max Threads |
+   +=============+========+================+==============+=================+=============+=============+
+   | rack1       |   14   |      76        | 30-00:00:00  |        258      | Platinum    |    1064     |
+   +-------------+--------+----------------+--------------+-----------------+-------------+-------------+
+   | broadwellr2 |   15   |      32        | 30-00:00:00  |        257      | Xeon E5     |     480     |
+   +-------------+--------+----------------+--------------+-----------------+-------------+-------------+
+   | r2c2        |   14   |      48        | 30-00:00:00  |        192      | Xeon Gold   |     672     |
+   +-------------+--------+----------------+--------------+-----------------+-------------+-------------+
+   | knl         |    2   |      72        | 30-00:00:00  |        193      | Phi 7290    |     144     |
+   +-------------+--------+----------------+--------------+-----------------+-------------+-------------+
+   | gpu         |    1   |  2×NVIDIA H100 | 30-00:00:00  |        80       | NVIDIA Gen5 |    29184    |
+   +-------------+--------+----------------+--------------+-----------------+-------------+-------------+
 
+.. note::
+   * ``Max Threads`` includes logical (Hyper-Threaded) CPUs when enabled.
+   * GPU "cores and threads" reflect CUDA cores — not traditional CPU threads.
 
-.. .. .. note:: **Clarification on max memory:** on the the broadwellr2, r2c2 and rack1 queues you can normally ask for ??? MB max memory. However, there are also additional nodes with bigger memory. As as you can see in the :ref:`Specs Sheet<Specs Sheet>`, though, there are not enough "big memory" nodes for all the possible configurations, as there are only ?? nodes with ?? MB max memory and only ?? nodes with ?? MB max memory. This means you have to be careful with big memory nodes if you queue jobs in ?? or ??. For example, it makes little sense to queue a job requiring all the ?? nodes with ?? MB max memory in the wide queue, which in principle is useful only for a number of nodes greater than ??. Since there are only ?? nodes with ?? MB max memory, it would make more sense to take advantage of the increased max time in the ? queue and queue it there.
-
-.. .. .. note:: **Clarification on threads:** since Hyper-Threading is enabled on all nodes, there are 2 threads per physical core. However, in SLURM's job script language, every thread is a CPU; this means that if you ask for "40 CPUs" in regular1 you are actually asking 40 threads, which is 20 physical cores. For a clarification on the definition on socket, core and thread take a look at the picture below.
+.. .. note::
+..    **Clarification on max memory:** On the `rack1`, `broadwellr2`, and `r2c2` queues, you can normally request up to the standard memory per node. However, some partitions may include nodes with **extended RAM**, and if your job exceeds standard capacity, it might wait indefinitely for a matching node. Always consult the :ref:`Specs Sheet <Specs Sheet>` for RAM distribution across partitions.
 
 .. figure:: res/mc_support.png
    :width: 67%
-   :alt: ulysses
+   :alt: Socket/Core/Thread diagram
    :align: center
-   
-   Definitions of Socket, Core, & Thread. From `SLURM's documentation <https://slurm.schedmd.com/mc_support.html>`_.
+
+   Definitions of Socket, Core, & Thread from `SLURM's documentation <https://slurm.schedmd.com/mc_support.html>`_.
 
 
 

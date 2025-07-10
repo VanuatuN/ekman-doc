@@ -139,82 +139,73 @@ the right partition (or “queue”) for the calculation you have to perform.</p
 <section id="partitions">
 <h2>Partitions<a class="headerlink" href="#partitions" title="Link to this heading"></a></h2>
 <p>The partitions (queues) are then organized as follows; note that you can get detailed information about a partition via the command <code class="code docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">show</span> <span class="pre">Partition=&lt;name&gt;</span></code>.</p>
-<table class="docutils align-default" id="id1">
-<caption><span class="caption-text">Max resources you can ask for each partition. (*): max ?? nodes. (**): max ?? nodes.
- :align: center
- :widths: auto</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<table class="docutils align-center" id="id1">
+<caption><span class="caption-text">Max resources you can ask for each partition.</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Partition</p></th>
-<th class="head"><div class="line-block">
-<div class="line">Max</div>
-<div class="line">Nodes</div>
-</div>
-</th>
-<th class="head"><div class="line-block">
-<div class="line">Max Time</div>
-<div class="line">(HH:MM:SS)</div>
-</div>
-</th>
-<th class="head"><div class="line-block">
-<div class="line">Max Memory</div>
-<div class="line">per Node (MB)</div>
-</div>
-</th>
-<th class="head"><div class="line-block">
-<div class="line">Max Threads</div>
-<div class="line">per Node</div>
-</div>
-</th>
-<th class="head"><div class="line-block">
-<div class="line">Max GPUs</div>
-<div class="line">per Node</div>
-</div>
-</th>
+<th class="head"><p>Nodes</p></th>
+<th class="head"><p>Cores per Node</p></th>
+<th class="head"><p>Max Time</p></th>
+<th class="head"><p>Max Memory (GB)</p></th>
+<th class="head"><p>Processor</p></th>
+<th class="head"><p>Max Threads</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>rack1</p></td>
-<td><p>11</p></td>
-<td><p>30-00:00</p></td>
-<td><p>???</p></td>
-<td><p>??</p></td>
-<td><p>-</p></td>
+<td><p>14</p></td>
+<td><p>76</p></td>
+<td><p>30-00:00:00</p></td>
+<td><p>258</p></td>
+<td><p>Platinum</p></td>
+<td><p>1064</p></td>
 </tr>
 <tr class="row-odd"><td><p>broadwellr2</p></td>
-<td><p>?</p></td>
-<td><p>30-00:00</p></td>
-<td></td>
-<td><p>40</p></td>
-<td><p>-</p></td>
+<td><p>15</p></td>
+<td><p>32</p></td>
+<td><p>30-00:00:00</p></td>
+<td><p>257</p></td>
+<td><p>Xeon E5</p></td>
+<td><p>480</p></td>
 </tr>
 <tr class="row-even"><td><p>r2c2</p></td>
-<td><p>?</p></td>
-<td><p>30-00:00</p></td>
-<td><p>?</p></td>
-<td><p>?</p></td>
-<td><p>-</p></td>
+<td><p>14</p></td>
+<td><p>48</p></td>
+<td><p>30-00:00:00</p></td>
+<td><p>192</p></td>
+<td><p>Xeon Gold</p></td>
+<td><p>672</p></td>
 </tr>
 <tr class="row-odd"><td><p>knl</p></td>
-<td><p>?</p></td>
-<td><p>30-00:00</p></td>
-<td><p>?</p></td>
-<td><p>?</p></td>
-<td><p>-</p></td>
+<td><p>2</p></td>
+<td><p>72</p></td>
+<td><p>30-00:00:00</p></td>
+<td><p>193</p></td>
+<td><p>Phi 7290</p></td>
+<td><p>144</p></td>
 </tr>
 <tr class="row-even"><td><p>gpu</p></td>
-<td></td>
-<td><p>?</p></td>
-<td></td>
-<td><p>??</p></td>
-<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2×NVIDIA H100</p></td>
+<td><p>30-00:00:00</p></td>
+<td><p>80</p></td>
+<td><p>NVIDIA Gen5</p></td>
+<td><p>29184</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Max</span> <span class="pre">Threads</span></code> includes logical (Hyper-Threaded) CPUs when enabled.</p></li>
+<li><p>GPU “cores and threads” reflect CUDA cores — not traditional CPU threads.</p></li>
+</ul>
+</div>
 <figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="res/mc_support.png"><img alt="ulysses" src="res/mc_support.png" style="width: 67%;" />
+<a class="reference internal image-reference" href="_images/mc_support.png"><img alt="Socket/Core/Thread diagram" src="_images/mc_support.png" style="width: 67%;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Definitions of Socket, Core, &amp; Thread. From <a class="reference external" href="https://slurm.schedmd.com/mc_support.html">SLURM’s documentation</a>.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">Definitions of Socket, Core, &amp; Thread from <a class="reference external" href="https://slurm.schedmd.com/mc_support.html">SLURM’s documentation</a>.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
