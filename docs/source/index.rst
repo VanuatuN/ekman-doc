@@ -1,6 +1,15 @@
 Ekman cluster documentation
 ===========================
 
+
+.. figure:: res/Ekman transport2.jpg
+   :width: 67%
+   :alt: ulysses
+   :align: center
+
+
+A picture of Ekman cluster.
+
 **Ekman** was launched in exteneded new architecture in September 2024.
 
 This new infrastructure consists of additional nodes and an upgraded software stack.
